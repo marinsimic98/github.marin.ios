@@ -18,10 +18,8 @@ class Quiz{
     let listOfQuestions: [Question]
     let image: String
     
-    // failable konstruktor koji prima json
     init?(dic: [String: Any]) {
         
-        // ovdje znamo da je ovaj json zapravo dictionary pa ga castamo u [String: Any]
         let id = dic["id"] as? String
         let title = dic["title"] as? String
         let description = dic["description"] as? String
