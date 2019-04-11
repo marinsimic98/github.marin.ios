@@ -10,7 +10,6 @@ import UIKit
 
 class MainView: UIViewController {
     
-    
     @IBOutlet weak var labelFunFact: UILabel!
     @IBOutlet weak var titleQuiz: UILabel!
     @IBOutlet weak var imageQuiz: UIImageView!
@@ -63,12 +62,14 @@ class MainView: UIViewController {
                 
                 }
                 let image = quiz.image
-                service.fetchImage(urlString: image){
-                    (image) in
-                    if let image = image {
-                        DispatchQueue.main.async {
-                        self.imageQuiz.image = image
-                        self.imageQuiz.isHidden = false
+                if let image = image {
+                    service.fetchImage(urlString: image){
+                        (image) in
+                        if let image = image {
+                            DispatchQueue.main.async {
+                                self.imageQuiz.image = image
+                                self.imageQuiz.isHidden = false
+                            }
                         }
                     }
                 }
